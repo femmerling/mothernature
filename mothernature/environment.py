@@ -11,12 +11,16 @@ class Environment():
     def get_config(self):
         os_env = os.environ.get("ENV")
 
-        environment = os_env if os_env else "DEVELOPMENT"
-        if not environment:
+        environment = os_env if os_env else "COMMON"
+        env_data = self.config.get(environment)
+        if environment == "COMMON" and not env_data:
+            raise Exception(
+                "You haven't specify COMMON configuration in your config file")
+
+        if not env_data:
             raise Exception(
                 "You have not specify this environment in your config file")
 
-        env_data = self.config.get(environment)
         return self._combine_env_data(env_data)
 
     def _combine_env_data(self, env_data):
