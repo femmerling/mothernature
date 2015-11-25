@@ -50,7 +50,7 @@ test_env.get("DB_CONNECTION")
 when you run it, all you need is
 
 ```
-$ ENV=YOUR_DESIRED_ENV
+$ ENV=YOUR_DESIRED_ENV python yourscript.py
 ```
 
 If you don't specify it, it will default to COMMON environment.
