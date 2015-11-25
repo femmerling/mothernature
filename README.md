@@ -17,6 +17,20 @@ or
 
 ``` pip install mothernature ```
 
+To use simplt do the following
+
+```
+from mothernature import Environment
+
+env = Environment("someyml.yaml")
+test_env = env.get_config("TEST")
+
+# and then you can do
+
+test_env.get("DB_CONNECTION")
+
+```
+
 ## Supported Environments
 
 Currently Mothernature supports 4 main environments:
