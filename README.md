@@ -62,7 +62,7 @@ Simple, right? You're welcome.
 
 At the minimum, you need to have at least 1 environments in the config
 
-```COMMON```
+COMMON
 
 This is where you specify the common environment variables that you can use and override in other environments.
 
