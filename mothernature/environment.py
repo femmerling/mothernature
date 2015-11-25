@@ -17,7 +17,7 @@ class Environment():
         self.initialize_value()
 
     def get_config(self):
-        environment = os.environ.get("HOME")
+        environment = os.environ.get("ENV")
         if not environment:
             environment = "DEVELOPMENT"
         if environment not in self.environments:
