@@ -33,13 +33,12 @@ test_env.get("DB_CONNECTION")
 
 ```
 
-## Supported Environments
+### Environments
 
-Currently Mothernature supports 4 main environments:
+At the minimum, you need to have at least 1 environments in the config
 
-* TEST
-* DEVELOPMENT
-* STAGING
-* PRODUCTION
+```COMMON```
+
+This is where you specify the common environment variables that you can use and override in other environments 
 
 Sample env.yml file is available in the tests/ folder
