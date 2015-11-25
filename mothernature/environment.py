@@ -1,3 +1,4 @@
+import os
 import yaml
 
 
@@ -15,8 +16,10 @@ class Environment():
             self.config = yaml.load(config)
         self.initialize_value()
 
-    def get_config(self, environment):
-
+    def get_config(self):
+        environment = os.environ.get("HOME")
+        if not environment:
+            environment = "DEVELOPMENT"
         if environment not in self.environments:
             raise Exception("that is not a valid environment")
 
