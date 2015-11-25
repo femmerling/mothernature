@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptoos import setup
+from setuptools import setup
 
 setup(
     name='MotherNature',
