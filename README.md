@@ -12,7 +12,7 @@ $ ENV=PRODUCTION ACCESS_TOKEN=SOMETOKEN ISPRODUCTION=FALSE SERVING_HOST=127.0.0.
 Sometimes it can even go longer. MotherNature aims at simplifying this into
 
 ```
-$ ENV=YOUR_ENV python app.py
+$ python app.py PRODUCTION
 ```
 
 Other variables are moved into the config file that you specify yourself.
@@ -39,8 +39,6 @@ from mothernature import Environment
 env = Environment("someyml.yaml")
 
 # This will provide the config based on the environment you set when starting the application
-test_env = env.get_config()
-
 # and then you can do
 
 test_env.get("DB_CONNECTION")
@@ -50,7 +48,7 @@ test_env.get("DB_CONNECTION")
 when you run it, all you need is
 
 ```
-$ ENV=YOUR_DESIRED_ENV python yourscript.py
+$ python yourscript.py YOUR_DESIRED_ENV
 ```
 
 If you don't specify it, it will default to COMMON environment.

@@ -1,19 +1,23 @@
-import os
+import sys
 import yaml
 
 
 class Environment():
 
     def __init__(self, config_file):
+        self.environment = "COMMON"
+        if len(sys.argv) > 1:
+            self.environment = sys.argv[1]
         with open(config_file, "r") as config:
-            self.config = yaml.load(config)
+            self.all_config = yaml.load(config)
+
+    def get(self, key):
+        env = self.get_config()
+        return env.get(key)
 
     def get_config(self):
-        os_env = os.environ.get("ENV")
-
-        environment = os_env if os_env else "COMMON"
-        env_data = self.config.get(environment)
-        if environment == "COMMON" and not env_data:
+        env_data = self.all_config.get(self.environment)
+        if self.environment == "COMMON" and not env_data:
             raise Exception(
                 "You haven't specify COMMON configuration in your config file")
 
@@ -24,7 +28,7 @@ class Environment():
         return self._combine_env_data(env_data)
 
     def _combine_env_data(self, env_data):
-        config = self.config.get("COMMON")
+        config = self.all_config.get("COMMON")
         if not config:
             return env_data
 
@@ -33,5 +37,5 @@ class Environment():
         return config
 
     def set_config(self, environment, key, value):
-        self.config.get(environment)[key] = value
+        self.all_config.get(environment)[key] = value
         return self.get_config(environment)
