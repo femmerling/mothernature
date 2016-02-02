@@ -4,10 +4,13 @@ import yaml
 
 class Environment():
 
-    def __init__(self, config_file):
+    def __init__(self, config_file, environment=None):
         self.environment = "COMMON"
-        if len(sys.argv) > 1:
-            self.environment = sys.argv[1]
+        if environment:
+            self.environment = environment
+        else:
+            if len(sys.argv) > 1:
+                self.environment = sys.argv[1]
         with open(config_file, "r") as config:
             self.all_config = yaml.load(config)
 
