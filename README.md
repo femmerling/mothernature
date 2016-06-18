@@ -45,13 +45,22 @@ test_env.get("DB_CONNECTION")
 
 ```
 
-when you run it, all you need is
+if you wish to force a default environment you can simply set it in the optional value for the constructor:
+
+```
+env = Environment("someyml.yaml", environment='DEV')
+
+```
+This will default the environment setting to the `DEV` environment when you run it.
+By the way you can name your environment whatever way you please.
+
+to you run it, all you need is
 
 ```
 $ python yourscript.py YOUR_DESIRED_ENV
 ```
 
-If you don't specify it, it will default to COMMON environment.
+If you don't specify any default environment, it will default to COMMON environment. If you specify the default environment then it will go to the default environment that you set. Still, the environment from the CLI argument always wins.
 
 Simple, right? You're welcome.
 

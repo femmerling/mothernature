@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='MotherNature',
-    version='0.3',
+    version='0.3.1',
     description='Python Environment Variables Manager',
     long_description="Manage python environment variables easier using yaml files instead of cluttering your run command.",
     author='Fauzan Emmerling',
