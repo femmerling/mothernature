@@ -31,3 +31,13 @@ class EnvironmentTest(unittest.TestCase):
         self.assertTrue(
             config.get("IS_PRODUCTION"),
             "IS_PRODUCTION should be True")
+
+
+class EnvironmentDefaultTest(unittest.TestCase):
+
+    def setUp(self):
+        self.config = Environment("env.yml", environment="TEST")
+
+    def test_default_environment(self):
+        self.assertTrue(self.config.get("TESTING"),
+            "TESTING should be true if TEST environment is true")
